@@ -1,0 +1,8 @@
+Django==5.0.7
+dj-database-url
+gunicorn==22.0.0
+psycopg[binary]
+wheel==0.38.1
+whitenoise==6.6.0
+python-dotenv==1.0.1
+requests
