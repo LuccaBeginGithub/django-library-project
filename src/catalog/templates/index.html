@@ -1,32 +1,49 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Local Library Home</h1>
+<div class="container py-4">
+    
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Library Management Site</h1>
+        <p class="col-md-12 fs-3">
+            Welcome to our library website! This project is built with Django, Bootstrap, PostgreSQL, Docker and
+            GitHub Action.</p>
+        <p class="col-md-12 fs-3">We currently have <strong>{{ num_books }}</strong> book{{num_books|pluralize}}, <strong>{{ num_instances }}</strong> book copies in total and 
+            <strong>{{num_instances_available}}</strong> book copies availble.
+         </p>
+         <p class="col-md-12 fs-3">Feel free to explore! You can do things as following:</p>
+      </div>
+    </div>
 
-<p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website">tutorial example</a> on the Mozilla Developer Network.</p>
-<p>The tutorial demonstrates how to create a Django skeleton website and application, define URL mappings, views (including Generic List and Detail Views), models and templates.</p>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>As a client</h2>
+          <p>You can view the lists of books, books copies, authors, genres, and languages</p>
+          <p>You don't need to sign up for this to work</p>
+          
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>As a staff</h2>
+          <p>You can manage the status of book copies, including extending the due day</p>
+          <p>You can also add new record to our database, if corresponding permissions are granted</p>
+          <p >Log in with my admin account and have unlimited permissions!! </p>
+          <div class="d-flex align-items-center gap-4">
+            <div>
+                <p class="text-primary fw-bold">username: lucca </p>
+                <p class="text-primary fw-bold">password: example.com</p>
+            </div>    
+          
+          <a href="{% url 'login'%}?next={{request.path}}" class="btn btn-outline-secondary">Login</a>
+          <div>
+        </div>
+      </div>
+    </div>
 
+    
 
-<h2>UML Models</h2>
-<p>An UML diagram of the site's Django model structure is shown below. </p>
-
-<div>
-{% load static %}
-<img src="{% static 'images/local_library_model_uml.png' %}" alt="My image" width="600px">
-</div>  
-
-
-<h2>Dynamic content</h2>
-
-<p>The library has the following record counts:</p>
-<ul>
-<li><strong>Books:</strong> {{ num_books }}</li>
-<li><strong>Copies:</strong> {{ num_instances }}</li>
-<li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-<li><strong>Authors:</strong> {{ num_authors }}</li>
-</ul>
-
-
-<p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 
 {% endblock %}
