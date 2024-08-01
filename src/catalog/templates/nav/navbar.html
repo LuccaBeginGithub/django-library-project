@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sidebar-nav" >
+<div class="d-flex flex-column flex-shrink-0  bg-body-tertiary sidebar-nav py-4 " >
     
     <ul class="nav nav-pills flex-column mb-auto ">
       <li class="nav-item">
@@ -39,7 +39,7 @@
         </form>
       <li>
         {% else %}
-        <li><a href="{% url 'login'%}?next={{request.path}}" class="nav-link link-body-emphasis">Login</a></li>
+        <li><a href="{% url 'login'%}?next={{request.path}}" class="nav-link link-body-emphasis "><strong>Login</strong></a></li>
       {% endif %}
     </ul>
     {% if user.is_staff %}
