@@ -69,7 +69,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Add our new application
     'catalog',  
-    'commando'
+    'commando',
+    # third party application
+    'allauth',
+    'allauth.account',
+
+    # Optional -- requires install using `django-allauth[socialaccount]`.
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +88,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'locallibrary.urls'
@@ -148,10 +157,25 @@ USE_TZ = True
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_NOTIFICATIONS = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
-# Add to test email:
+AUTHENTICATION_BACKENDS = [
+    #
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    #
+]
 
+SOCIALACCOUNT_PROVIDERS = {
+    
+}
 
 # Update database configuration from $DATABASE_URL environment variable (if defined)
 
