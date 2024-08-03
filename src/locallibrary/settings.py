@@ -42,7 +42,7 @@ if all([ADMIN_USER_NAME, ADMIN_USER_EMAIL]):
 SECRET_KEY  = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DJANGO_DEBUG", cast=bool)
+DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # Set hosts to allow any app on Railway and the local testing URL
