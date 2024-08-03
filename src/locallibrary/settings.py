@@ -71,8 +71,11 @@ INSTALLED_APPS = [
     'catalog',  
     'commando',
     # third party application
+    "allauth_ui",
     'allauth',
     'allauth.account',
+    "widget_tweaks",
+    "slippers",
 
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
@@ -224,3 +227,4 @@ STORAGES = {
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ALLAUTH_UI_THEME = "light"

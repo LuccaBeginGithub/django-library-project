@@ -7,3 +7,6 @@ whitenoise==6.6.0
 python-dotenv==1.0.1
 requests
 django-allauth[socialaccount]
+django-allauth-ui
+django-widget-tweaks
+slippers
