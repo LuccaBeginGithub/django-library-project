@@ -177,7 +177,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
-    
+    "github": {
+        "VERIFIED_EMAIL": True
+    }
 }
 
 # Update database configuration from $DATABASE_URL environment variable (if defined)
