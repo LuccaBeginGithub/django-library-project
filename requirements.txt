@@ -6,3 +6,5 @@ wheel==0.38.1
 whitenoise
 requests
 django-allauth[socialaccount]
+python-decouple
+
