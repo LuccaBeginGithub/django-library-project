@@ -199,13 +199,15 @@ if DATABASE_URL is not None:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATICFILES_BASE_DIR = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = (
-    STATIC_ROOT,
+    STATICFILES_BASE_DIR
 )
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Static file serving.
 # https://whitenoise.readthedocs.io/en/stable/django.html#add-compression-and-caching-support
