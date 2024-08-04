@@ -69,17 +69,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Add our new application
     'catalog',  
-    'commando',
+   
     # third party application
-    "allauth_ui",
+
     'allauth',
     'allauth.account',
-    "widget_tweaks",
-    "slippers",
+   
 
     # Optional -- requires install using `django-allauth[socialaccount]`.
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
+    
 ]
 
 MIDDLEWARE = [
@@ -177,9 +175,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
-    "github": {
-        "VERIFIED_EMAIL": True
-    }
+   
 }
 
 # Update database configuration from $DATABASE_URL environment variable (if defined)
@@ -190,7 +186,7 @@ if DATABASE_URL is not None:
     DATABASES = {
         "default": dj_database_url.config(
             default=DATABASE_URL,
-            conn_max_age=500,
+            conn_max_age=30,
             conn_health_checks=True,
         )
     }
@@ -200,19 +196,12 @@ if DATABASE_URL is not None:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_URL = "static/"
-STATICFILES_BASE_DIR = BASE_DIR / "staticfiles"
-STATICFILES_BASE_DIR.mkdir(exist_ok=True, parents=True)
-STATICFILES_VENDOR_DIR = STATICFILES_BASE_DIR / "vendors"
-
-# source(s) for python manage.py collectstatic 
-STATICFILES_DIRS = [
-    STATICFILES_BASE_DIR
-]
-
-# output for python manage.py collectstatic 
-# local cdn
-STATIC_ROOT = BASE_DIR / "local-cdn"
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# The URL to use when referring to static files (where they will be served from)
+STATIC_URL = '/static/'
 
 
 
@@ -229,4 +218,3 @@ STORAGES = {
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ALLAUTH_UI_THEME = "light"
