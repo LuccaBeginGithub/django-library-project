@@ -39,7 +39,7 @@ if all([ADMIN_USER_NAME, ADMIN_USER_EMAIL]):
     MANAGERS=ADMINS
 
 
-SECRET_KEY  = config('DJANGO_SECRET_KEY')
+SECRET_KEY  = config('DJANGO_SECRET_KEY', cast=str, default ="django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
